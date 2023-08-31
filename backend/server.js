@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 
 // use goalRoutes to handle any endpoints that end with api
 app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
   
 app.use(errorHandler)
 
