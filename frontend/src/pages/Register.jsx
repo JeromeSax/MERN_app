@@ -22,7 +22,8 @@ function Register() {
         e.preventDefault()
     }
 
-    return (<>
+    return (
+    <>
         <section className="heading">
             <h1>
                 <FaUser /> Register
