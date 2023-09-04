@@ -66,7 +66,7 @@ const updateGoal = asyncHandler(async (req, res) => {
 // @route DELETE /api/goals/:id
 // @access Private 
 const deleteGoal = asyncHandler(async (req, res) => {
-    const goal = await Goal.findById(req.params.id)
+    const goal = await Goal.findById({ user: req.user.id })
 
     if(!goal) {
         res.status(400)
@@ -87,7 +87,7 @@ const deleteGoal = asyncHandler(async (req, res) => {
         throw new Error('User not authorized')
     }
 
-    deleteOne()
+    await goal.deleteOne();
 
     res.status(200).json({ id: req.params.id })
 });
